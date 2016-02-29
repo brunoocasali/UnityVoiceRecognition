@@ -12,7 +12,12 @@ Unity Voice Recognition for Unity 5.4.0.B2 and above; for Windows with voice rec
 
 # Also included
 
-1. A modification of a script in a sample 2D Unity game found here: https://www.assetstore.unity3d.com/en/#!/content/18684.
+1. Also included is a modification of a script in a sample 2D Unity game found here: https://www.assetstore.unity3d.com/en/#!/content/18684.
 2. Replace Player.cs in 2D Scrolling Shooter with Player.cs provided and it will move with voice recognition instead of keyboard commands:
     Say "left" to make the shooter move left, "right" for moving right, "up" for up, "down" for down.
 2D sample is by Unity, under Apache License.
+
+# VoiceRecDLL
+
+1. The solution/project files for VoiceRecDLL is also included in /VoiceRecDLL.
+
