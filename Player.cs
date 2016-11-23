@@ -1,34 +1,24 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-
-//This script manages the player object
-public class Player : Spaceship
+public class Player : MonoBehaviour
 {
-    private VoiceRec.VoiceClass obj;
+    private VoiceRec.VoiceClass recognizer;
     private string word;
 
     void Start()
     {
-        obj = new VoiceRec.VoiceClass();
-        //set of commands
+        recognizer = new VoiceRec.VoiceClass();
         string[] str = { "left", "right", "down", "up" };
-        obj.initRecog(str);
+        recognizer.initRecog(str);
+		float x = Input.GetAxisRaw ("Horizontal");
+		float y = Input.GetAxisRaw ("Vertical");
     }
-
 
     void Update ()
 	{
-        /* Instead of keyboard..
-
-		//Get our raw inputs
-		float x = Input.GetAxisRaw ("Horizontal");
-		float y = Input.GetAxisRaw ("Vertical");
-
-        */
-
-        word = obj.getWord();
+        word = recognizer.getWord();
         float x = 0.0F;
         float y = 0.0F;
         if (word != null && word != "")
@@ -49,9 +39,8 @@ public class Player : Spaceship
                     break;
             }
         }
-        //Normalize the inputs
+		
         Vector2 direction = new Vector2 (x, y).normalized;
-		//Move the player
 		Move (direction);
 	}
 	
