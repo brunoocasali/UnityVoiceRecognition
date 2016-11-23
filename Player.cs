@@ -12,12 +12,19 @@ public class Player : MonoBehaviour
         recognizer = new VoiceRec.VoiceClass();
         string[] str = { "left", "right", "down", "up" };
         recognizer.initRecog(str);
-		float x = Input.GetAxisRaw ("Horizontal");
-		float y = Input.GetAxisRaw ("Vertical");
+
     }
 
     void Update ()
 	{
+	void Update()
+    {
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 150.0f;
+        var z = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
+
+        transform.Rotate(0, x, 0);
+        transform.Translate(0, 0, z);
+    }
         word = recognizer.getWord();
         float x = 0.0F;
         float y = 0.0F;
